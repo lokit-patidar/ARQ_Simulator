@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+/* Fonts (installed through npm, so they work offline) */
+@import "@fontsource/ibm-plex-sans/400.css";
+@import "@fontsource/ibm-plex-sans/500.css";
+@import "@fontsource/ibm-plex-sans/600.css";
+@import "@fontsource/ibm-plex-sans/700.css";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+
+/* Our colour names. Example: bg-frame, text-ink, border-line */
+@theme {
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-paper: #eef2f7;   /* page background */
+  --color-ink: #0f1b33;     /* main text */
+  --color-line: #cdd6e4;    /* borders */
+  --color-frame: #2f5bea;   /* data frame (blue) */
+  --color-ack: #0f9d6b;     /* acknowledgement (green) */
+  --color-retry: #e08a00;   /* retransmission / waiting (amber) */
+  --color-loss: #d6334a;    /* lost packet (red) */
+  --color-buffer: #7c4dff;  /* frame buffered at receiver (violet) */
+}
+
+/* Graph-paper background, like a lab notebook */
+body {
+  margin: 0;
+  background-color: var(--color-paper);
+  background-image:
+    linear-gradient(#dde4ee 1px, transparent 1px),
+    linear-gradient(90deg, #dde4ee 1px, transparent 1px);
+  background-size: 28px 28px;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+}
+
+/* Slim scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #a9b6cc transparent;
+}
+
+/* Respect people who turn animations off in their system */
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse { animation: none; }
+}
